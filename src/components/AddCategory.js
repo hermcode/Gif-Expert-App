@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import 'boxicons'
 
-export const AddCategory = ({setCategories}) => {
+export const AddCategory = ( {setCategories} ) => {
 
   const [inputValue, setInputValue] = useState('')
 
@@ -27,6 +28,8 @@ export const AddCategory = ({setCategories}) => {
         placeholder = "Ingresa una categoría"
         onChange = { handleInputChane }
       />
+      
+      <button><box-icon name='search'></box-icon></button>
     </form>
   )
 }

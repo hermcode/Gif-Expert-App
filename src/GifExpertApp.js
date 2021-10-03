@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
 
   // const categories = ['Drive To Survive', 'El juego del calamar', 'Lucifer'];
-  const drivers = ['Lewis Hamilton', 'Max Verstappen', 'Sergio Pérez', 'Valteri Bottas'];
+  const drivers = ['Lewis Hamilton'];
   const [categories, setCategories] = useState(drivers);
 
   // const handleAdd = () => {
@@ -19,13 +20,15 @@ export const GifExpertApp = () => {
       {/* Input */}
       <AddCategory setCategories = { setCategories }/>
 
-      <hr />
 
       <ol>
         {
-          categories.map( category => {
-            return <li key = { category }> { category } </li>
-          })
+          categories.map( category => 
+            <GifGrid 
+              key = { category }
+              category = { category }
+            />
+          )
         }
       </ol>
     </>
