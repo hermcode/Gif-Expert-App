@@ -7,7 +7,7 @@ export const AddCategory = ( {setCategories} ) => {
   const [inputValue, setInputValue] = useState('')
 
   // Cambia el estado de nuestro input
-  const  handleInputChane = (e) => {
+  const  handleInputChange = (e) => {
     setInputValue(e.target.value);
   }
 
@@ -15,21 +15,21 @@ export const AddCategory = ( {setCategories} ) => {
     e.preventDefault();
     
     if(inputValue.trim().length > 0){
-      setCategories( cats => [...cats, inputValue]);
+      setCategories( inputValue );
       setInputValue('');
     }
   }
 
   return (
-    <form onSubmit = { handleSubmit }>
+    <form onSubmit = { handleSubmit } className='search-input'>
       <input 
         type="text"
         value = { inputValue }
         placeholder = "Ingresa una categoría"
-        onChange = { handleInputChane }
+        onChange = { handleInputChange }
       />
       
-      <button><box-icon name='search'></box-icon></button>
+      <button className="btn-search"><box-icon name='search' size='md' color='white' rotate='90'></box-icon></button>
     </form>
   )
 }

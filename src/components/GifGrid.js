@@ -10,14 +10,17 @@ export const GifGrid = ( {category} ) => {
     getGifs();
   }, [])
 
-  // Petición a la API Giphy
-  const getGifs = async() => {
+  const limitValue = 150;
 
-    const apiKey = 'wryjtazKZ7YGqtjhFXJkVj1waY1OcmgM';
-    const search = 'Lewis Hamilton';
-    const limit = 10;
+  // Petición a la API Giphy
+  const getGifs = async(limitValue) => {
+
+    const api = 'https://api.giphy.com/v1/gifs/search?'
+    const apiKey = '&api_key=wryjtazKZ7YGqtjhFXJkVj1waY1OcmgM';
+    const query = `q=${category}`;
+    const limit = `&limit=${limitValue}`;
   
-    const url = `https://api.giphy.com/v1/gifs/search?q=${search}&limit=${limit}&api_key=${apiKey}`;
+    const url = api + query + limit + apiKey;
     const resp = await fetch ( url );
     const {data} = await resp.json();
     
@@ -36,9 +39,9 @@ export const GifGrid = ( {category} ) => {
   }
 
   return (
-    <>
-      <h3>{ category }</h3>
-      <ol>
+    <div className='GifGrid'>
+      <h2>{ category } <span>{ limitValue } GIFs</span></h2>
+      <div className = "card-grid">
         {
           images.map( item =>
             <GifGridItem  
@@ -48,7 +51,7 @@ export const GifGrid = ( {category} ) => {
             />
           )
         }
-      </ol>
-    </>
+      </div>
+    </div>
   )
 }

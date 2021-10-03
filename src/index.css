@@ -1,15 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  padding: 50px;
+  background: black;
+  color: #fff;
 }
 
 input {
+  height: 52px;
   font-size: 1.2rem;
   width: 100%;
-  padding: .5rem .7rem;
-  outline-color: rgb(181, 58, 212);
+  padding: .5rem 1.2rem;
+  outline: none;
+  border: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.GifExpertApp {
+  margin-top: 20px;
+}
+
+.giphy-logo {
+  width: 200px;
+}
+
+.search-input {
+  display: flex;
+}
+.btn-search {
+  outline: none;
+  border: none;
+  height: 52px;
+  width: 52px;
+  background: rgb(255,140,237);
+  background: linear-gradient(190deg, rgba(255,140,237,1) 0%, rgba(170,75,247,1) 100%);
+  color: #fff;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+}
+.btn-search box-icon {
+  margin-top: 7px;
+  margin-right: 2px;
+}
+
+.GifGrid {
+  margin-top: 20px;
+}
+
+.GifGrid h2 {
+  margin-bottom: 20px;
+}
+
+.GifGrid span {
+  font-size: .8rem;
+  font-weight: 600;
+  color: gray;
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.card {
+  /* border: 1px solid red; */
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 10px 10px 0;
+  height: 180px;
+}
+
+.card img {
+  max-height: 200px;
 }
