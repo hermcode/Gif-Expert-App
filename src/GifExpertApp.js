@@ -15,7 +15,7 @@ export const GifExpertApp = () => {
   
   return(
     <div className='GifExpertApp container'>
-      <a href="/">
+      <a href=".">
         <img 
           className='giphy-logo' 
           src="https://i.pinimg.com/originals/58/e3/83/58e3834fdfe26e6d1853eb14d89cbff1.gif" 
