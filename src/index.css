@@ -88,3 +88,8 @@ input {
 .card img {
   max-height: 200px;
 }
+
+.spinner-loader {
+  display: block;
+  margin: 0 auto;
+}

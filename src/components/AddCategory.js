@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import 'boxicons'
 
-export const AddCategory = ( {setCategories} ) => {
+export const AddCategory = ( {setCategory} ) => {
 
   const [inputValue, setInputValue] = useState('')
 
@@ -15,7 +15,7 @@ export const AddCategory = ( {setCategories} ) => {
     e.preventDefault();
     
     if(inputValue.trim().length > 0){
-      setCategories( inputValue );
+      setCategory( inputValue );
       setInputValue('');
     }
   }
@@ -35,5 +35,5 @@ export const AddCategory = ( {setCategories} ) => {
 }
 
 AddCategory.propTypes = {
-  setCategories: PropTypes.func.isRequired
+  setCategory: PropTypes.func.isRequired
 };

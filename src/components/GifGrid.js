@@ -1,46 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { GifGridItem } from './GifGridItem';
+import { useFetchGifs } from '../hooks/useFetchGifs'
+import { SpinnerLoader } from './SpinnerLoader';
 
 export const GifGrid = ( {category} ) => {
 
-  const [images, setImages] = useState([]);
+  const limitValue = 50;
+  const { data:images, dataLength, loading } = useFetchGifs(category, limitValue);
 
-  // useEffect
-  useEffect( () => {
-    getGifs();
-  }, [])
-
-  const limitValue = 150;
-
-  // Petición a la API Giphy
-  const getGifs = async(limitValue) => {
-
-    const api = 'https://api.giphy.com/v1/gifs/search?'
-    const apiKey = '&api_key=wryjtazKZ7YGqtjhFXJkVj1waY1OcmgM';
-    const query = `q=${category}`;
-    const limit = `&limit=${limitValue}`;
-  
-    const url = api + query + limit + apiKey;
-    const resp = await fetch ( url );
-    const {data} = await resp.json();
-    
-    // Elimina toda la información irrelevante de data
-    const gifs = data.map( img => {
-      return {
-        id: img.id,
-        title: img.title,
-        url: img.images.downsized_medium.url
-      }
-    });
-
-    console.log(gifs)
-    setImages( gifs );
-    
-  }
+  const results = images.length;
 
   return (
     <div className='GifGrid'>
-      <h2>{ category } <span>{ limitValue } GIFs</span></h2>
+      <h2>{ category } { images && <span> {results} GIFs</span>} </h2>
+
+      { loading && <SpinnerLoader />}
+      
+      { dataLength === 0 && <h1>No se encontraron resultados</h1> }
+
       <div className = "card-grid">
         {
           images.map( item =>
