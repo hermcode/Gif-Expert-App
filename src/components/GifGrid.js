@@ -8,11 +8,9 @@ export const GifGrid = ( {category} ) => {
   const limitValue = 50;
   const { data:images, dataLength, loading } = useFetchGifs(category, limitValue);
 
-  const results = images.length;
-
   return (
     <div className='GifGrid'>
-      <h2>{ category } { images && <span> {results} GIFs</span>} </h2>
+      <h2>{ category } { images && <span> { dataLength } GIFs</span>} </h2>
 
       { loading && <SpinnerLoader />}
       

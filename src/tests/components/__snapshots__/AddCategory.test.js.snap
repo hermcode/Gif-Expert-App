@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el componente AddCategory.js se debe mostrar correctamente  1`] = `
+<form
+  className="search-input"
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Ingresa una categoría"
+    type="text"
+    value=""
+  />
+  <button
+    className="btn-search"
+  >
+    <box-icon
+      color="white"
+      name="search"
+      rotate="90"
+      size="md"
+    />
+  </button>
+</form>
+`;

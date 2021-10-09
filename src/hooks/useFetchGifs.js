@@ -16,11 +16,11 @@ export const useFetchGifs = (category, limitValue) => {
     getGifs(category, limitValue)
       .then( imgs => {
 
-          setState({
-            data: imgs,
-            dataLength: imgs.length,
-            loading: false
-          })
+        setState({
+          data: imgs,
+          dataLength: imgs.length,
+          loading: false
+        })
 
       })
   }, [category, limitValue])
